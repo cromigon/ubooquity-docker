@@ -3,9 +3,10 @@ ubooquity:
   build: .
   container_name: ubooquity2
   volumes:
-    - ./files/conf:/ubooquity-conf
+    - ./files/conf:/opt/ubooquity-conf
     - /library:/opt/data
   environment:
+    - /etc/localtime:/etc/localtime:ro
     - TZ=Europe/Paris
   ports:
     - 2202:2202

@@ -1,0 +1,13 @@
+ubooquity:
+  restart: always
+  build: .
+  container_name: ubooquity2
+  volumes:
+    - ./files/conf:/opt/ubooquity-conf
+    - /library:/opt/data
+  environment:
+    - /etc/localtime:/etc/localtime:ro
+    - TZ=Europe/Paris
+  ports:
+    - 2202:2202
+    - 2502:2502

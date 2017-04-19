@@ -4,9 +4,9 @@ ubooquity:
   container_name: ubooquity2
   volumes:
     - ./files/conf:/ubooquity-conf
-    - /datastore/media/library:/opt/data
+    - /library:/opt/data
   environment:
     - TZ=Europe/Paris
   ports:
-    - 55603:2202
-    - 55604:2502
+    - 2202:2202
+    - 2502:2502

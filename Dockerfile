@@ -1,15 +1,32 @@
-FROM alpine:3.4
-MAINTAINER Niclas Björner <niclas@cromigon.se>
+# Pull base image.
+FROM ubuntu:16.04
 
-ENV JAVA_HOME="/usr/lib/jvm/java-1.8-openjdk/bin/java" APP_VERSION="1.10.1"
+# Define commonly used JAVA_HOME variable and Ubooquity version
+ENV JAVA_HOME /usr/lib/jvm/java-9-oracle APP_VERSION="2.0.0"
 
-RUN apk --no-cache add openjdk8-jre-base openjdk8-jre-lib curl unzip && \
-    mkdir -p /opt/ubooquity/fonts && mkdir -p /opt/ubooquity-data && mkdir -p /opt/data && \
-    curl -Ss http://vaemendis.net/ubooquity/downloads/Ubooquity-${APP_VERSION}.zip -o /tmp/${APP_VERSION}.zip && \
-    unzip /tmp/${APP_VERSION}.zip -d /opt/ubooquity && \
-    rm /tmp/${APP_VERSION}.zip
+# Install Java.
+RUN \
+  apt-get update && \
+  apt-get install -y software-properties-common && \
+  echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
+  add-apt-repository -y ppa:webupd8team/java && \
+  apt-get update && \
+  apt-get install -y oracle-java9-installer && \
+  rm -rf /var/lib/apt/lists/* && \
+  rm -rf /var/cache/oracle-jdk8-installer
 
+# Install Ubooquity
+RUN \
+  apt-get install -y wget && \
+  mkdir -p /opt/ubooquity/fonts /opt/ubooquity-conf /opt/data && \
+  cd /opt/ubooquity && \
+  wget http://vaemendis.net/ubooquity/downloads/special/SimpletofMars/Ubooquity.jar
+
+# Define working directory.
 WORKDIR /opt/ubooquity
-EXPOSE 2202
 
-ENTRYPOINT ["java", "-jar", "Ubooquity.jar", "-workdir", "/opt/ubooquity-data", "-headless"]
+# Expose Ubooquity ports
+EXPOSE 2202 2502
+
+# Define default command.
+ENTRYPOINT ["java", "-jar", "Ubooquity.jar", "-workdir", "/opt/ubooquity-data", "-headless", "-libraryport", "2202", "-adminport", "2502", "-remoteadmin"]

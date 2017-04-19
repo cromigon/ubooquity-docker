@@ -29,4 +29,4 @@ WORKDIR /opt/ubooquity
 EXPOSE 2202 2502
 
 # Define default command.
-ENTRYPOINT ["java", "-jar", "Ubooquity.jar", "-workdir", "/opt/ubooquity-data", "-headless", "-libraryport", "2202", "-adminport", "2502", "-remoteadmin"]
+ENTRYPOINT ["java", "-jar", "Ubooquity.jar", "-workdir", "/opt/ubooquity-conf", "-headless", "-libraryport", "2202", "-adminport", "2502", "-remoteadmin"]

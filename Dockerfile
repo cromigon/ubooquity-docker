@@ -24,5 +24,5 @@ VOLUME /opt/ubooquity-data /opt/data
 # Define default command
 ENTRYPOINT ["java", "-Dfile.encoding=UTF-8", "-jar", "-Xmx512m", "Ubooquity.jar", "-workdir", "/opt/ubooquity-data", "-headless", "-libraryport", "2202", "-adminport", "2502", "-remoteadmin"]
 
-# Maintener
+# Maintainer
 LABEL maintainer="zer <zerpex@gmail.com>"

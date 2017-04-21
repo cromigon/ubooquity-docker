@@ -2,10 +2,10 @@
 
 # Introduction
 
-This is my take on an docker image for Ubooquity. @hurricanehrndz has made an image for us in his [docker-containers repository](https://github.com/hurricanehrndz/docker-containers)*.
-I felt that this wasn't entirely to my liking. Mostly because it's in an OS that I don't completely understand.
+This is my take on an docker image for Ubooquity. @cromignon has made an image for us in his [docker-containers repository](https://github.com/cromigon/ubooquity-docker)*.
+but doesn't seems to maintain it anymore.
 
-So I made this image based on Alpine Linux to keep it somewhat minimalistic, it's been running on my own server for a while now and I haven't run into any obvious problems.
+So I made this image based based on his own, but with Ubooquity v2.
 It relies on you mounting directories for ubooquity data and for the comics (instructions below).
 
 
@@ -33,28 +33,39 @@ Copy-pasted from the Ubooquity homepage.
 Ensure that you have folders created for the ubooquity data on the host.
 It's generally recommended to have some e-books or comics to mount in.
 
-## First run
+## Docker
 
-Since the container doesn't come with any settings pre-done, we need to start it with the webadmin module enabled.
-I would recommend to do this in an disposable container.
-
-```
-docker run --rm -ti -v /PATH/TO/UBOOQUITY/DATA:/opt/ubooquity-data -v /PATH/TO/COMICSANDBOOKS:/opt/data -p 2202:2202 cromigon/ubooquity:latest -webadmin
-```
-
-Now go into http://{YOUR_IP_ADDRESS}:2202/admin and do your configuration in accordance to the ubooquity documentation.
-
-Exit the container when you are done, since we don't want to leave the webadmin running, if you need it again in the future, just stop the running container, run the above command again and log-in to the admin panel.
-
-## Second run
-
-Now we've come to the part when we're going to run the long-running container. It's recommended (by me) to don't have it running with the webadmin part enabled. I also like to run my long-running containers have the restart=always flag enabled.
+Run the following command line :
 
 ```
-docker run --restart=always -d -v /PATH/TO/UBOOQUITY/DATA:/opt/ubooquity-data -v /PATH/TO/COMICSANDBOOKS:/opt/data -p 2202:2202 cromigon/ubooquity:latest
+docker run --rm -ti -v /PATH/TO/UBOOQUITY/DATA:/opt/ubooquity-data -v /PATH/TO/COMICSANDBOOKS:/opt/data -p 2202:2202 -p 2502:2502 zerpex/ubooquity
+```
+Now go into http://{YOUR_IP_ADDRESS}:2502/admin and do your configuration in accordance to the ubooquity documentation.
+Then, you can access Ubooquity through http://{YOUR_IP_ADDRESS}:2202
+
+## Docker-compose
+
+Use the following docker-compose.yml and adapt it to you configuration :
+
+```
+ubooquity:
+  restart: always
+  image: zerpex/ubooquity
+  container_name: ubooquity
+  volumes:
+    - ./files/conf:/opt/ubooquity-data
+    - /home/library:/opt/data
+    - /etc/localtime:/etc/localtime:ro
+  environment:
+    - TZ=Europe/Paris
+  ports:
+    - 2202:2202
+    - 2502:2502
+
 ```
 
-Now if you want to install themes or such, just put them in the themes folder in the ubooquity-data folder.
+Now go into http://{YOUR_IP_ADDRESS}:2502/admin and do your configuration in accordance to the ubooquity documentation.
+Then, you can access Ubooquity through http://{YOUR_IP_ADDRESS}:2202
 
 
 # License

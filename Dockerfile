@@ -8,21 +8,21 @@ ENV \
 # Install Ubooquity
 RUN \
   apk --no-cache add curl unzip wget && \
-  mkdir -p /opt/ubooquity/fonts /opt/ubooquity-data /opt/data && \
-  cd /opt/ubooquity && \
+  mkdir -p /config /media /ubooquity && \
+  cd /ubooquity && \
   wget http://vaemendis.net/ubooquity/downloads/special/beta4/Ubooquity.jar
 
 # Define working directory.
-WORKDIR /opt/ubooquity
+WORKDIR /ubooquity
 
 # Expose Ubooquity ports
 EXPOSE 2202 2502
 
 # Declare volumes
-VOLUME /opt/ubooquity-data /opt/data
+VOLUME /config /media
 
 # Define default command
-ENTRYPOINT ["java", "-Dfile.encoding=UTF-8", "-jar", "-Xmx512m", "Ubooquity.jar", "-workdir", "/opt/ubooquity-data", "-headless", "-libraryport", "2202", "-adminport", "2502", "-remoteadmin"]
+ENTRYPOINT ["java", "-Dfile.encoding=UTF-8", "-jar", "-Xmx512m", "/ubooquity/Ubooquity.jar", "-workdir", "/config", "-headless", "-libraryport", "2202", "-adminport", "2502", "-remoteadmin"]
 
 # Maintainer
 LABEL maintainer="zer <zerpex@gmail.com>"

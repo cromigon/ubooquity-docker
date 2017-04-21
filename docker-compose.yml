@@ -3,8 +3,8 @@ ubooquity:
   image: zerpex/ubooquity-docker
   container_name: ubooquity2
   volumes:
-    - ./files/conf:/opt/ubooquity-conf
-    - /library:/opt/data
+    - ./files/conf:/config
+    - /library:/media
     - /etc/localtime:/etc/localtime:ro
   environment:
     - TZ=Europe/Paris

@@ -38,7 +38,7 @@ It's generally recommended to have some e-books or comics to mount in.
 Run the following command line :
 
 ```
-docker run --rm -ti -v /PATH/TO/UBOOQUITY/DATA:/opt/ubooquity-data -v /PATH/TO/COMICSANDBOOKS:/opt/data -p 2202:2202 -p 2502:2502 zerpex/ubooquity
+docker run --rm -ti -v /PATH/TO/UBOOQUITY/DATA:/config -v /PATH/TO/COMICSANDBOOKS:/media -p 2202:2202 -p 2502:2502 zerpex/ubooquity
 ```
 Now go into http://{YOUR_IP_ADDRESS}:2502/admin and do your configuration in accordance to the ubooquity documentation.
 Then, you can access Ubooquity through http://{YOUR_IP_ADDRESS}:2202
@@ -53,8 +53,8 @@ ubooquity:
   image: zerpex/ubooquity-docker
   container_name: ubooquity
   volumes:
-    - ./files/conf:/opt/ubooquity-data
-    - /home/library:/opt/data
+    - ./files/conf:/conf
+    - /home/library:/media
     - /etc/localtime:/etc/localtime:ro
   environment:
     - TZ=Europe/Paris

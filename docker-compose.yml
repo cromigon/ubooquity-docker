@@ -5,8 +5,8 @@ ubooquity:
   volumes:
     - ./files/conf:/opt/ubooquity-conf
     - /library:/opt/data
-  environment:
     - /etc/localtime:/etc/localtime:ro
+  environment:
     - TZ=Europe/Paris
   ports:
     - 2202:2202

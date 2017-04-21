@@ -50,7 +50,7 @@ Use the following docker-compose.yml and adapt it to you configuration :
 ```
 ubooquity:
   restart: always
-  image: zerpex/ubooquity
+  image: zerpex/ubooquity-docker
   container_name: ubooquity
   volumes:
     - ./files/conf:/opt/ubooquity-data

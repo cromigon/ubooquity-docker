@@ -53,7 +53,7 @@ ubooquity:
   image: zerpex/ubooquity-docker
   container_name: ubooquity
   volumes:
-    - ./files/conf:/conf
+    - ./files/conf:/config
     - /home/library:/media
     - /etc/localtime:/etc/localtime:ro
   environment:

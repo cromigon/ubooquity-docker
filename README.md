@@ -3,9 +3,9 @@
 # Introduction
 
 @cromignon has made an image for us in his [own repository](https://github.com/cromigon/ubooquity-docker), but doesn't seems to maintain it anymore.  
+This image is built to be as lighweight and simple as possible. It is based on latest alpine and java 8.  
 
-So I made this image based based on his own, but updated with Ubooquity v2.
-
+- **Ubooquity version** : 2.0.1 b4
 
 ## About Ubooquity
 
@@ -71,6 +71,7 @@ ubooquity:
 Once the container is up:  
 - go to http://{YOUR_IP_ADDRESS}:2502/admin and do your configuration according to the [ubooquity documentation](https://vaemendis.github.io/ubooquity-doc/).  
 - Then, you can access Ubooquity through http://{YOUR_IP_ADDRESS}:2202
+- In order to keep your containers up to date automatically, I recommand you to use [Watchtower](https://github.com/v2tec/watchtower) that will do the job for you :)
 
 # License
 

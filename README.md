@@ -2,11 +2,9 @@
 
 # Introduction
 
-This is my take on an docker image for Ubooquity. @cromignon has made an image for us in his [docker-containers repository](https://github.com/cromigon/ubooquity-docker)*.
-but doesn't seems to maintain it anymore.
+@cromignon has made an image for us in his [own repository](https://github.com/cromigon/ubooquity-docker), but doesn't seems to maintain it anymore.  
 
-So I made this image based based on his own, but with Ubooquity v2.
-It relies on you mounting directories for ubooquity data and for the comics (instructions below).
+So I made this image based based on his own, but updated with Ubooquity v2.
 
 
 ## About Ubooquity
@@ -30,8 +28,8 @@ Copy-pasted from the Ubooquity homepage.
 
 ## Prerequisite
 
-Ensure that you have folders created for the ubooquity data on the host.
-It's generally recommended to have some e-books or comics to mount in.
+Ensure that you have folders created for the ubooquity config on the host.
+It's generally recommended to have some e-books or comics to mount in :)
 
 ## Docker
 
@@ -71,7 +69,7 @@ ubooquity:
 ## Notes
 
 Once the container is up:  
-- go to http://{YOUR_IP_ADDRESS}:2502/admin and do your configuration accordancing to the [ubooquity documentation](https://vaemendis.github.io/ubooquity-doc/).  
+- go to http://{YOUR_IP_ADDRESS}:2502/admin and do your configuration according to the [ubooquity documentation](https://vaemendis.github.io/ubooquity-doc/).  
 - Then, you can access Ubooquity through http://{YOUR_IP_ADDRESS}:2202
 
 # License

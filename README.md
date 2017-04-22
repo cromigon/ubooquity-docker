@@ -44,10 +44,9 @@ docker run --restart=always -d \
   -p 2202:2202 \
   -p 2502:2502 \
   zerpex/ubooquity-docker
+  
 ```
 
-Now go into http://{YOUR_IP_ADDRESS}:2502/admin and do your configuration in accordance to the ubooquity documentation.
-Then, you can access Ubooquity through http://{YOUR_IP_ADDRESS}:2202
 
 ## Docker-compose
 
@@ -58,9 +57,8 @@ ubooquity:
   restart: always
   image: zerpex/ubooquity-docker
   container_name: ubooquity
-  volumes:
-    - ./files/conf:/config
-    - /home/library:/media
+    - /PATH/TO/UBOOQUITY/CONFIG:/config
+    - /PATH/TO/YOUR/COMICS:/media
     - /etc/localtime:/etc/localtime:ro
   environment:
     - TZ=Europe/Paris
@@ -70,9 +68,11 @@ ubooquity:
 
 ```
 
-Now go into http://{YOUR_IP_ADDRESS}:2502/admin and do your configuration in accordance to the ubooquity documentation.
-Then, you can access Ubooquity through http://{YOUR_IP_ADDRESS}:2202
+## Notes
 
+Once the container is up:  
+- go to http://{YOUR_IP_ADDRESS}:2502/admin and do your configuration accordancing to the [ubooquity documentation](https://vaemendis.github.io/ubooquity-doc/).  
+- Then, you can access Ubooquity through http://{YOUR_IP_ADDRESS}:2202
 
 # License
 

@@ -39,6 +39,12 @@ Since the container doesn't come with any settings pre-done, we need to start it
 I would recommend to do this in an disposable container.
 
 ```
+docker run --rm -ti -v /PATH/TO/COMICSANDBOOKS:/opt/data -p 2202:2202 cromigon/ubooquity:latest -webadmin
+```
+
+Or if you want to save the ubooquity service data to a specific folder and not the auto generated volume,
+
+```
 docker run --rm -ti -v /PATH/TO/UBOOQUITY/DATA:/opt/ubooquity-data -v /PATH/TO/COMICSANDBOOKS:/opt/data -p 2202:2202 cromigon/ubooquity:latest -webadmin
 ```
 
@@ -48,10 +54,16 @@ Exit the container when you are done, since we don't want to leave the webadmin 
 
 ## Second run
 
-Now we've come to the part when we're going to run the long-running container. It's recommended (by me) to don't have it running with the webadmin part enabled. I also like to run my long-running containers have the restart=always flag enabled.
+Now we've come to the part when we're going to run the long-running container. It's recommended (by me) to don't have it running with the webadmin part enabled. I also like to run my long-running containers have the restart=unless-stopped flag enabled.
 
 ```
-docker run --restart=always -d -v /PATH/TO/UBOOQUITY/DATA:/opt/ubooquity-data -v /PATH/TO/COMICSANDBOOKS:/opt/data -p 2202:2202 cromigon/ubooquity:latest
+docker run --restart=unless-stopped -d -v /PATH/TO/COMICSANDBOOKS:/opt/data -p 2202:2202 cromigon/ubooquity:latest
+```
+
+Or if you're not using the auto-generated volume
+
+```
+docker run --restart=unless-stopped -d -v /PATH/TO/UBOOQUITY/DATA:/opt/ubooquity-data -v /PATH/TO/COMICSANDBOOKS:/opt/data -p 2202:2202 cromigon/ubooquity:latest
 ```
 
 Now if you want to install themes or such, just put them in the themes folder in the ubooquity-data folder.

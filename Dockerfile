@@ -19,12 +19,6 @@ RUN \
   unzip /tmp/${APP_VERSION}.zip -d /ubooquity && \
   rm /tmp/${APP_VERSION}.zip
 
-# Install Comixology theme
-RUN \
-  wget https://www.dropbox.com/sh/jwl1mz4hg0tzw2o/AADJN-G1AaRuLRmFBYxyvoPZa/comixology.zip?dl=1 -O /tmp/comixology.zip && \
-  unzip /tmp/comixology.zip -d /config/themes && \
-  rm /tmp/comixology.zip
-
 # Define working directory.
 WORKDIR /ubooquity
 

@@ -1,6 +1,4 @@
 ![Ubooquity Logo](http://i.imgur.com/InPPMtr.png)
-=========================================================
-
 [![Docker Stars](https://img.shields.io/docker/stars/zerpex/ubooquity-docker.svg)](https://hub.docker.com/r/zerpex/ubooquity-docker/) [![Docker Pulls](https://img.shields.io/docker/pulls/zerpex/ubooquity-docker.svg)](https://hub.docker.com/r/zerpex/ubooquity-docker/) [![Docker Size](https://img.shields.io/imagelayers/image-size/zerpex/ubooquity-docker/latest.svg)](https://hub.docker.com/r/zerpex/ubooquity-docker/) [![Docker Layers](https://img.shields.io/imagelayers/layers/zerpex/ubooquity-docker/latest.svg)](https://hub.docker.com/r/zerpex/ubooquity-docker/) 
 
 # Introduction
@@ -29,8 +27,8 @@ Copy-pasted from the Ubooquity homepage.
 
 # Getting started
 
-Docker Installation
--------------------
+## Docker Installation
+
 Please see the [Docker installation documentation](https://docs.docker.com/installation/) for details.
 
 ## Prerequisite

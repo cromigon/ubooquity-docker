@@ -6,7 +6,7 @@
 @cromignon has made an image for us in his [own repository](https://github.com/cromigon/ubooquity-docker), but doesn't seems to maintain it anymore.  
 This image is built to be as lighweight and simple as possible. It is based on latest alpine and java 8.  
 
-- **Ubooquity version** : 2.0.2
+- **Ubooquity version** : 2.1.0
 
 ## About Ubooquity
 

@@ -3,7 +3,7 @@ FROM java:8u111-jre-alpine
 
 # Define Ubooquity version
 ENV \
-  APP_VERSION="2.1.0"
+  APP_VERSION=$(curl -s http://vaemendis.net/ubooquity/static2/download | grep Version | awk -F\& '{print $1}' | awk '{print $NF}')
 
 # Install Ubooquity
 RUN \
@@ -14,7 +14,6 @@ RUN \
      /config \
      /media \
      /ubooquity && \
-#  wget http://vaemendis.net/ubooquity/downloads/special/beta4/Ubooquity.jar -O /ubooquity/Ubooquity.jar
   wget http://vaemendis.net/ubooquity/downloads/Ubooquity-${APP_VERSION}.zip -O /tmp/${APP_VERSION}.zip && \
   unzip /tmp/${APP_VERSION}.zip -d /ubooquity && \
   rm /tmp/${APP_VERSION}.zip

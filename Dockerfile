@@ -3,7 +3,8 @@ FROM java:8u111-jre-alpine
 
 # Define Ubooquity version
 ENV \
-  APP_VERSION=$(curl -s http://vaemendis.net/ubooquity/static2/download | grep Version | awk -F\& '{print $1}' | awk '{print $NF}')
+  APP_VERSION=2.1.1
+#  APP_VERSION=$(curl -s http://vaemendis.net/ubooquity/static2/download | grep Version | awk -F\& '{print $1}' | awk '{print $NF}')
 
 # Install Ubooquity
 RUN \

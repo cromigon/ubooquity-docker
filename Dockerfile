@@ -1,4 +1,4 @@
-# Pull base image..
+# Pull base image.
 FROM java:8u111-jre-alpine
 
 # Define Ubooquity version

@@ -1,5 +1,16 @@
 ![Ubooquity Logo](http://i.imgur.com/InPPMtr.png)
 
+# Notice - Unmaintained
+
+This repository is unmaintained due to me not having the time to take care of it.
+
+[@zerpex](https://github.com/zerpex) has done an amazing job in working on Ubooquity v2 in his repository [zerpex/ubooquity-docker](https://github.com/zerpex/ubooquity-docker)
+
+I suggest that you check that out if you want a more modern version.
+
+I am going to leave this repository open so feel free to fork, clone etc.
+Thank you for showing an interest in this repository!
+
 # Introduction
 
 This is my take on an docker image for Ubooquity. @hurricanehrndz has made an image for us in his [docker-containers repository](https://github.com/hurricanehrndz/docker-containers)*.

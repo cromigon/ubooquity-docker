@@ -8,7 +8,7 @@ This repository is unmaintained due to me not having the time to take care of it
 
 I suggest that you check that out if you want a more modern version.
 
-I am going to leave this repository open so feel free to fork, clone etc.
+I am going to leave this repository up, but archived so feel free to fork if you want to do something based upon it.
 Thank you for showing an interest in this repository!
 
 # Introduction
